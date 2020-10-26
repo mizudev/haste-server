@@ -1,7 +1,8 @@
 FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app && \
-    chown node:node /usr/src/app
+    chown node:node /usr/src/app && \
+    apk add --no-cache curl
 
 USER node:node 
 
@@ -9,7 +10,7 @@ WORKDIR /usr/src/app
 
 COPY --chown=node:node . . 
 
-RUN npm install && apk --no-cache add curl
+RUN npm install
 
 ENV STORAGE_TYPE=memcached \
     STORAGE_HOST=127.0.0.1 \
