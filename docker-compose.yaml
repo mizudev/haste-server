@@ -22,5 +22,5 @@ services:
       - internal
       - external
     ports: 
-      - "7777:7777"
+      - "8397:7777"
 version: "3.0"
