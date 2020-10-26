@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 
 COPY --chown=node:node . . 
 
-RUN npm install
+RUN npm install && apk --no-cache add curl
 
 ENV STORAGE_TYPE=memcached \
     STORAGE_HOST=127.0.0.1 \
