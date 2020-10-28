@@ -8,6 +8,7 @@ services:
     image: "redis:alpine"
     networks: 
       - internal
+    restart: unless-stopped
     volumes: 
       - "./data:/data"
   website: 
@@ -23,4 +24,5 @@ services:
       - external
     ports: 
       - "8397:7777"
+    restart: unless-stopped
 version: "3.0"
